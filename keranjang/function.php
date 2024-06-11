@@ -23,12 +23,16 @@ function tambah($data){
 
     // deklarasikan inputan apa aja yang ingin kalian insert / masukan
     $NamaProduk = $data["NamaProduk"];
-    $Gambar = $data["Gambar"];
+    // $Gambar = $data["Gambar"];
     $Jumlah = $data["Jumlah"];
     $Harga = $data["Harga"];
+    // $nomor_invoice = $data["nomor_invoice"];
+    // $status_pembayaran = $data["status_pembayaran"];
+    // $alamat = $data["alamat"];
+    // $total = $data["total"];
 
     //Jalankan perintah SQL
-    $query = "INSERT INTO product VALUES (NULL, '$NamaProduk', '$Gambar', '$Jumlah', '$Harga')";
+    $query = "INSERT INTO product VALUES (NULL, '$NamaProduk', '$Jumlah', '$Harga')";
     mysqli_query($conn, $query);
 
     // kembalikan nilainya
@@ -67,6 +71,8 @@ function registrasi($data) {
 
     // tambahkan userbaru ke database
     mysqli_query($conn, "INSERT INTO user VALUES ('', '$username', '$password')");
+
+    header('Location = ..//landing-page.php');
     
     return mysqli_affected_rows($conn);
 } 
@@ -99,5 +105,38 @@ function cari($keyword) {
     $query = "SELECT * FROM product WHERE NamaProduk LIKE '%$keyword%'";
     return query($query);
 }
+
+// $username = $_POST["username"];
+// $password = $_POST["password"];
+
+// $query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
+
+// $cek = mysqli_num_rows($query);
+
+// if($cek> 0) {
+//     $data = mysqli_fetch_array($query);
+
+//     if($data["roles"] == "admin") {
+//         session_start();
+
+//         $_SESSION["id_user"] = $data["id_user"];
+//         $_SESSION["username"] = $data["username"];
+
+//         header('Location: ..//landing-page.php');
+
+//    }else if($data ["roles"] == "customer") {
+//     session_start();
+
+//         $_SESSION["id_user"] = $data["id_user"];
+//         $_SESSION["username"] = $data["username"];
+
+//         header('Location: ..//landing-page.php');
+
+//    }
+// }else{
+//     echo "<script type='text/javascript'>
+//            alert('Ur Account not available')
+//           </script>";
+// }
 
 ?>

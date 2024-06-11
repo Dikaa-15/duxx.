@@ -11,12 +11,12 @@ if(isset($_POST["edit"])) {
     if(edit($_POST) > 0) {
         echo "<script type='text/javascript'>
                  alert('Pesanan Berhasil diubah!')
-                 window.location = 'keranjang-belanja.php';
+                 window.location = 'admin.php';
               </script>";
     }else{
         echo "<script type='text/javascript'>
                  alert('Pesanan gagal...')
-                 window.location = 'keranjang-belanja.php';
+                 window.location = 'admin.php';
               </script>";
     }
 }
