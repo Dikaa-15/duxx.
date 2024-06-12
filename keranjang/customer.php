@@ -8,7 +8,7 @@ if(isset($_POST["cari"])) {
     $sepatu = cari($_POST["keyword"]);
 }
 
-// require 'sidebar.php'
+// require 'sidebar.php';
 
 ?>
 
@@ -31,7 +31,9 @@ if(isset($_POST["cari"])) {
         }
     
         #sc{
-            margin-right: 10px       
+            margin-right: 70px ;     
+            padding: 5px 50px;
+            border: 1px solid green;
         }
         .form{
             display: flex;
@@ -66,7 +68,7 @@ if(isset($_POST["cari"])) {
         <a href="tambah.php" class="btn btn-success px-4 py-2 mx-5 mb-2" id="insert">Tambah Pesanan</a>
         <div>
             <button type="submit" name="cari" class="btn btn-success" id="sc">Search </button>
-            <input type="text" name="keyword" size="10" autofocus placeholder="Cari Pesanan " autocomplete="off" class="search mr-5">
+            <input type="text" name="keyword" size="10" autofocus placeholder="Cari Pesanan " autocomplete="off" class="first-letter:" id="sc">
         </div>
         </form>
     </nav>
@@ -98,7 +100,6 @@ if(isset($_POST["cari"])) {
                     <td><?= $data ["alamat"]; ?></td>
                     <td><?= $data ["total"]; ?></td>
                     <td>
-                        <a href="edit.php?id=<?= $data["id_produk"]; ?>" class="btn btn-primary"><i class="bi bi-pencil">Ganti</i></a>
                         <a href="batal.php?id=<?= $data["id_produk"]; ?>" onClick="return confirm ('Apakah anda yakin ingin membatalkan pesananan ini..')" class="btn btn-danger ml-2"><i class="bi bi-trash">Batal</i></a>
                     </td>
                 </tr>

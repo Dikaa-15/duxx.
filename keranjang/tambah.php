@@ -6,7 +6,7 @@ if(isset($_POST["tambah"])) {
     if(tambah($_POST) > 0 ) {
         echo "<script type='text/javascript'>
                  alert('Pesanan berhasil tambah!')
-                 window.location = 'admin.php'
+                 window.location = 'customer.php'
               </script>";
     }else{
         echo "<script type='text/javascript'>
@@ -24,7 +24,7 @@ if( !isset($_SESSION["login"])) {
     exit;
 }
 
-require 'sidebar.php';
+// require 'sidebar.php';
 
 ?>
 
@@ -34,6 +34,8 @@ require 'sidebar.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <style>
         .img{
             margin-left: 40%;
@@ -47,51 +49,32 @@ require 'sidebar.php';
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-<form action="" method="POST" class="container bg-white mt-5"  enctype="multipart/form-data">
-        <input type="hidden" name="id_produk">
-        <div class="mb-3 row">
-            <label for="" class="col-sm-2 form-label">Nama produk</label>
-            <div class="col-sm-10">
-                <input type="text" name="NamaProduk" id="NamaProduk" required class="form-control" autofocus>
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="" class="col-sm-2 form-label">Jumlah</label>
-            <div class="col-sm-10">
-                <input type="number" name="Jumlah" id="Jumlah" required class="form-control">
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="" class="col-sm-2 form-label">Harga</label>
-            <div class="col-sm-10">                
-                <input type="number" name="Harga" id="Harga" required class="form-control">
-            </div>
-        </div>
-        <!-- <div class="mb-3 row">
-            <label for="" class="col-sm-2 form-label">Nomor Resi</label>
-            <div class="col-sm-10">                
-                <input type="number" name="nomor_invoice"  required class="form-control">
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="" class="col-sm-2 form-label">Status Pembayaran</label>
-            <div class="col-sm-10">                
-                <input type="text" name="status_pembayaran" required class="form-control">
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="exampleFormControlTextarea1" class="col-sm-2 form-label">Alamat</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat"  required ></textarea>
+    <div class="container">
 
-        </div>
-        <div class="mb-3 row">
-            <label for="" class="col-sm-2 form-label">Total</label>
-            <div class="col-sm-10">                
-                <input type="number" name="total" required class="form-control">
-            </div>
-        </div> -->
-       
-            </form>
-        <button type="submit" name="tambah" class="mx-auto p-2 btn btn-primary"  style="width: 200px;">Tambah</button>
+    <form action="" method="post">
+        <label for="nama_produk">Nama Produk</label><br>
+        <input type="text" name="NamaProduk" id="NamaProduk"><br><br>
+
+        <label for="jumlah">Jumlah</label><br>
+        <input type="number" name="Jumlah" id="Jumlah"><br><br>
+
+        <label for="harga">Harga</label><br>
+        <input type="text" name="Harga" id="Harga"><br><br>
+
+        <label for="nomor_invo">Nomor Invoice</label><br>
+        <input type="text" name="nomor_invoice" id="nomor_invoice"><br><br>
+
+        <label for="status">Status</label><br>
+        <input type="text" name="status_pembayaran" id="status_pembayaran"><br><br>
+
+        <label for="alamat">Alamat</label><br>
+        <input type="text" name="alamat" id="alamat"><br><br>
+
+        <label for="total">Total</label><br>
+        <input type="text" name="total" id="total"><br><br>
+        
+        <button type="submit" name="tambah">Tambah</button>
+    </form>
+    </div>
 </body>
 </html>

@@ -4,40 +4,35 @@ require 'koneksi.php';
 
 
 function query($query){
-
+    
     global $conn;
-
-    $rows = [];
-
+  
     $result = mysqli_query($conn, $query);
-
+    $rows = [];
+  
     while($row = mysqli_fetch_assoc($result)){
-        $rows[] = $row;
+      $rows[] = $row;
     }
-
+  
     return $rows;
-}
+  }
 
-function tambah($data){
+  function tambah($data){
     global $conn;
 
-    // deklarasikan inputan apa aja yang ingin kalian insert / masukan
     $NamaProduk = $data["NamaProduk"];
-    // $Gambar = $data["Gambar"];
     $Jumlah = $data["Jumlah"];
     $Harga = $data["Harga"];
-    // $nomor_invoice = $data["nomor_invoice"];
-    // $status_pembayaran = $data["status_pembayaran"];
-    // $alamat = $data["alamat"];
-    // $total = $data["total"];
+    $nomor_invoice = $data["nomor_invoice"];
+    $status_pembayaran = $data["status_pembayaran"];
+    $alamat = $data["alamat"];
+    $total = $data["total"];
 
-    //Jalankan perintah SQL
-    $query = "INSERT INTO product VALUES (NULL, '$NamaProduk', '$Jumlah', '$Harga')";
+    $query = "INSERT INTO product VALUES(NULL, '$NamaProduk', '$Jumlah', '$Harga', '$nomor_invoice', '$status_pembayaran', '$alamat', '$total')";
     mysqli_query($conn, $query);
 
-    // kembalikan nilainya
     return mysqli_affected_rows($conn);
-}
+  }
 
 function registrasi($data) {
     global $conn;

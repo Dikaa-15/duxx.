@@ -8,7 +8,7 @@ if(isset($_POST["cari"])) {
     $sepatu = cari($_POST["keyword"]);
 }
 
-require 'sidebar.php'
+require 'sidebar.php';
 
 ?>
 
@@ -31,7 +31,9 @@ require 'sidebar.php'
         }
     
         #sc{
-            margin-right: 10px       
+            margin-right: 70px ;     
+            padding: 5px 50px;
+            border: 1px solid green;
         }
         .form{
             display: flex;
@@ -66,7 +68,7 @@ require 'sidebar.php'
         <a href="tambah.php" class="btn btn-success px-4 py-2 mx-5 mb-2" id="insert">Tambah Pesanan</a>
         <div>
             <button type="submit" name="cari" class="btn btn-success" id="sc">Search </button>
-            <input type="text" name="keyword" size="10" autofocus placeholder="Cari Pesanan " autocomplete="off" class="search mr-5">
+            <input type="text" name="keyword" size="10" autofocus placeholder="Cari Pesanan " autocomplete="off" class="first-letter:" id="sc">
         </div>
         </form>
     </nav>
